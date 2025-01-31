@@ -15,7 +15,7 @@ A step-by-step guide to install, configure, and verify the AWS CLI for interacti
 - [Verify Configuration](#verify-configuration)
 - [Basic Usage Examples](#basic-usage-examples)
 - [Security Best Practices](#security-best-practices)
-- [aws-cdk](#aws-cdk)
+- [Contact](#contact)
 
 ---
 
@@ -61,7 +61,7 @@ A step-by-step guide to install, configure, and verify the AWS CLI for interacti
 ### Windows
 
 ### Step 1: Download the Installer
-1. Visit the [AWS CLI Website](https://aws.amazon.com/cli/).
+1. Visit the [AWS CLI Website]([https://aws.amazon.com/cli/](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)).
 2. Download the **Windows MSI Installer**.
 
 ### Step 2: Run the Installer
@@ -87,13 +87,9 @@ Step 1: Sign in to the AWS Management Console
 1. Go to the [AWS Management Console](https://aws.amazon.com/console/).
 2. Sign in with your AWS account credentials.
 
----
-
 Step 2: Open the IAM Console
 1. In the AWS Management Console, search for **IAM** (Identity and Access Management) in the search bar.
 2. Click on **IAM** to open the IAM console.
-
----
 
 Step 3: Create an IAM User (if you don’t have one)
 1. In the IAM console, navigate to **Users** in the left-hand menu.
@@ -101,8 +97,6 @@ Step 3: Create an IAM User (if you don’t have one)
 3. Enter a **User name** (e.g., `my-iam-user`).
 4. Under **Select AWS access type**, check **Programmatic access**.
 5. Click **Next: Permissions**.
-
----
 
 Step 4: Attach Permissions to the User
 1. Choose how to assign permissions:
@@ -112,13 +106,9 @@ Step 4: Attach Permissions to the User
 2. Click **Next: Tags** (optional).
 3. Click **Next: Review**.
 
----
-
 Step 5: Review and Create the User
 1. Review the user details and permissions.
 2. Click **Create user**.
-
----
 
 Step 6: Retrieve Access Key and Secret Access Key
 1. After creating the user, you’ll see a confirmation screen.
@@ -149,6 +139,7 @@ Step 6: Retrieve Access Key and Secret Access Key
 1. Run the following command to verify your AWS identity:
    ```bash
    aws sts get-caller-identity
+   
    {
     "UserId": "AIDAXXXXXXXXXXXXXXXX",
     "Account": "123456789012",
@@ -158,30 +149,31 @@ Step 6: Retrieve Access Key and Secret Access Key
 2. Test S3 Access : Run the following command to list all S3 buckets in your account:
     ```bash
     aws s3 ls
+    
     2023-10-01 12:34:56 my-first-bucket
     2023-10-02 14:20:10 my-second-bucket
     
 ---
 
 ## Basic Usage Examples
-## S3 Operations
+# 1. S3 Operations
 
-### List buckets:
+
+1. Get all the S3 Bucket list
     ```bash
     aws s3 ls
+    
     2023-10-01 12:34:56 my-first-bucket
     2023-10-02 14:20:10 my-second-bucket
 
----
-
-# EC2 Operations
-
-## List EC2 Instances
-
+# 2. EC2 Operations
+ 
 1. To list all EC2 instances, use the following command:
 
     ```bash
     aws ec2 describe-instances
+
+    
 2. To start an EC2 instance, use the following command:
 
     ```bash
@@ -192,15 +184,16 @@ Step 6: Retrieve Access Key and Secret Access Key
     ```bash
     aws ec2 stop-instances --instance-ids i-1234567890abcdef0 // Replace your instance id
 
----
-# IAM Operations
-
-## List IAM Users
+# 3. IAM Operations
 
 1. To list all IAM users, use the following command:
     ```bash
     aws iam list-users
+    
+# 4. AWS CLI Command Reference
 
+Go to the [AWS CLI DOCUMENTATION](https://awscli.amazonaws.com/v2/documentation/api/latest/index.html).
+  
 
 ---
 
@@ -240,9 +233,8 @@ Step 6: Retrieve Access Key and Secret Access Key
 For more information, refer to the [AWS Security Best Practices Guide](https://docs.aws.amazon.com/security/).
 
 ---
-## aws-cdk
 
-Contact
+## Contact
 For questions or feedback:
 📧 Email: your.email@example.com
 🐙 GitHub: your-username
