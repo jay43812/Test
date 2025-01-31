@@ -40,7 +40,6 @@ A step-by-step guide to install, configure, and verify the AWS CLI for interacti
    
 ### Linux
 
-## Step 1: Download the AWS CLI Installer  
 1. Open a terminal.  
 2. Run the following command to download the AWS CLI:  
 
