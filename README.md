@@ -74,7 +74,7 @@ A step-by-step guide to install, configure, and verify the AWS CLI for interacti
    aws --version
    # Example output: aws-cli/2.13.0 Python/3.11.4 Windows/10 exe/AMD64
 
-# How to Get AWS Access Key and Secret Access Key
+## How to Get AWS Access Key and Secret Access Key
 
 Follow these steps to create and retrieve your AWS Access Key and Secret Access Key.
 
@@ -127,11 +127,6 @@ Follow these steps to create and retrieve your AWS Access Key and Secret Access 
 
 ---
 
-## Step 7: Use the Credentials
-1. Use the **Access Key ID** and **Secret Access Key** to configure AWS CLI or SDKs.
-2. Example AWS CLI configuration:
-   ```bash
-   aws configure
 
 
 Contact
