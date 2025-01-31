@@ -74,25 +74,27 @@ A step-by-step guide to install, configure, and verify the AWS CLI for interacti
    aws --version
    # Example output: aws-cli/2.13.0 Python/3.11.4 Windows/10 exe/AMD64
 
+---
+
 ## How to Get AWS Access Key and Secret Access Key
 
 Follow these steps to create and retrieve your AWS Access Key and Secret Access Key.
 
 ---
 
-## Step 1: Sign in to the AWS Management Console
+Step 1: Sign in to the AWS Management Console
 1. Go to the [AWS Management Console](https://aws.amazon.com/console/).
 2. Sign in with your AWS account credentials.
 
 ---
 
-## Step 2: Open the IAM Console
+Step 2: Open the IAM Console
 1. In the AWS Management Console, search for **IAM** (Identity and Access Management) in the search bar.
 2. Click on **IAM** to open the IAM console.
 
 ---
 
-## Step 3: Create an IAM User (if you don’t have one)
+Step 3: Create an IAM User (if you don’t have one)
 1. In the IAM console, navigate to **Users** in the left-hand menu.
 2. Click **Add users**.
 3. Enter a **User name** (e.g., `my-iam-user`).
@@ -101,7 +103,7 @@ Follow these steps to create and retrieve your AWS Access Key and Secret Access 
 
 ---
 
-## Step 4: Attach Permissions to the User
+Step 4: Attach Permissions to the User
 1. Choose how to assign permissions:
    - **Add user to group**: Attach the user to an existing group with permissions.
    - **Copy permissions from existing user**: Copy permissions from another user.
@@ -111,13 +113,13 @@ Follow these steps to create and retrieve your AWS Access Key and Secret Access 
 
 ---
 
-## Step 5: Review and Create the User
+Step 5: Review and Create the User
 1. Review the user details and permissions.
 2. Click **Create user**.
 
 ---
 
-## Step 6: Retrieve Access Key and Secret Access Key
+Step 6: Retrieve Access Key and Secret Access Key
 1. After creating the user, you’ll see a confirmation screen.
 2. Click **Download .csv** to save the credentials to your computer.
    - The `.csv` file contains:
