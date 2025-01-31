@@ -10,11 +10,12 @@ A step-by-step guide to install, configure, and verify the AWS CLI for interacti
   - [macOS](#macos)
   - [Linux](#linux)
   - [Windows](#windows)
-- [How to Get AWS Access Key and Secret Access Key](#how-to-get-aws-access-and-secret-key)
+- [How to Get AWS Access Key and Secret Access Key](#how-to-get-aws-access-key-and-secret-access-key)
 - [Configure AWS CLI](#configure-aws-cli)
 - [Verify Configuration](#verify-configuration)
 - [Basic Usage Examples](#basic-usage-examples)
-
+- [Security Best Practices](#security-best-practices)
+- [aws-cdk](#aws-cdk)
 
 ---
 
@@ -129,7 +130,117 @@ Step 6: Retrieve Access Key and Secret Access Key
 
 ---
 
+## Configure AWS CLI
 
+1. Run the configuration wizard:
+   ```bash
+   aws configure
+2. Enter the following details when prompted:
+   ```bash
+   AWS Access Key ID [None]: AKIAXXXXXXXXXXXXXXXX  # Replace with your Access Key
+   AWS Secret Access Key [None]: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  # Replace with your Secret Key
+   Default region name [None]: for example : us-east-1  # Preferred AWS region
+   Default output format [None]: json  # Output format (json/text/table)
+---
+   
+## Verify Configuration
+
+### Step 1: Check Your AWS Identity
+1. Run the following command to verify your AWS identity:
+   ```bash
+   aws sts get-caller-identity
+   {
+    "UserId": "AIDAXXXXXXXXXXXXXXXX",
+    "Account": "123456789012",
+    "Arn": "arn:aws:iam::123456789012:user/your-iam-username"
+   }
+
+2. Test S3 Access : Run the following command to list all S3 buckets in your account:
+    ```bash
+    aws s3 ls
+    2023-10-01 12:34:56 my-first-bucket
+    2023-10-02 14:20:10 my-second-bucket
+    
+---
+
+## Basic Usage Examples
+## S3 Operations
+
+### List buckets:
+    ```bash
+    aws s3 ls
+    2023-10-01 12:34:56 my-first-bucket
+    2023-10-02 14:20:10 my-second-bucket
+
+---
+
+# EC2 Operations
+
+## List EC2 Instances
+
+1. To list all EC2 instances, use the following command:
+
+    ```bash
+    aws ec2 describe-instances
+2. To start an EC2 instance, use the following command:
+
+    ```bash
+    aws ec2 start-instances --instance-ids i-1234567890abcdef0 // Replace your instance id
+
+3. To stop an EC2 instance, use the following command:
+
+    ```bash
+    aws ec2 stop-instances --instance-ids i-1234567890abcdef0 // Replace your instance id
+
+---
+# IAM Operations
+
+## List IAM Users
+
+1. To list all IAM users, use the following command:
+    ```bash
+    aws iam list-users
+
+
+---
+
+## Security Best Practices
+
+### 1. Never Hardcode Credentials
+- Avoid storing AWS keys in code or plaintext files.
+- Use environment variables or AWS Secrets Manager for secure storage.
+
+### 2. Use IAM Roles
+- Prefer IAM roles over long-term credentials for EC2 instances, Lambda functions, and other AWS services.
+- Roles provide temporary credentials that are automatically rotated.
+
+### 3. Rotate Keys Regularly
+- Rotate Access Keys every 90 days via the [AWS IAM Console](https://console.aws.amazon.com/iam/).
+- Delete unused or compromised keys immediately.
+
+### 4. Enable Multi-Factor Authentication (MFA)
+- Enable MFA for your AWS root account and IAM users to add an extra layer of security.
+
+### 5. Apply the Principle of Least Privilege
+- Grant only the permissions necessary for a user or role to perform their tasks.
+- Regularly review and update IAM policies.
+
+### 6. Monitor Activity with AWS CloudTrail
+- Enable AWS CloudTrail to log all API calls and monitor activity in your AWS account.
+- Set up alerts for suspicious activity.
+
+### 7. Use Encryption
+- Encrypt sensitive data at rest (e.g., S3, RDS) and in transit (e.g., SSL/TLS).
+- Use AWS Key Management Service (KMS) to manage encryption keys.
+
+### 8. Regularly Audit Permissions
+- Use IAM Access Analyzer to identify unintended resource access.
+- Review and remove unnecessary permissions.
+
+For more information, refer to the [AWS Security Best Practices Guide](https://docs.aws.amazon.com/security/).
+
+---
+## aws-cdk
 
 Contact
 For questions or feedback:
