@@ -6,10 +6,9 @@ Amazon Elastic Compute Cloud (EC2) is a web service that provides resizable comp
 1. [Using AWS Management Console](#using-aws-management-console)
 2. [Using AWS CLI](#using-aws-cli)
 3. [Using AWS SDK for Python (Boto3)](#using-aws-sdk-for-python-boto3)
-4. [How to Access an EC2 Instance](#how-to-access-an-ec2-instance)
-   - [Accessing EC2 Instance Using SSH](#2-accessing-ec2-instance-using-ssh)
-   - [Accessing EC2 Instance Using EC2 Instance Connect](#3-accessing-ec2-instance-using-ec2-instance-connect)
-   - [Accessing EC2 Instance Using Session Manager (AWS Systems Manager)](#1-accessing-ec2-instance-using-session-manager-aws-systems-manager)
+4. [Accessing EC2 Instance Using SSH](#2-accessing-ec2-instance-using-ssh)
+5. [Accessing EC2 Instance Using EC2 Instance Connect](#3-accessing-ec2-instance-using-ec2-instance-connect)
+6. [Accessing EC2 Instance Using Session Manager (AWS Systems Manager)](#1-accessing-ec2-instance-using-session-manager-aws-systems-manager)
 
 ## Using AWS Management Console
 
