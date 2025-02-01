@@ -6,9 +6,10 @@ Amazon Elastic Compute Cloud (EC2) is a web service that provides resizable comp
 1. [Using AWS Management Console](#using-aws-management-console)
 2. [Using AWS CLI](#using-aws-cli)
 3. [Using AWS SDK for Python (Boto3)](#using-aws-sdk-for-python-boto3)
-4. [Accessing EC2 Instance Using SSH](#2-accessing-ec2-instance-using-ssh)
-5. [Accessing EC2 Instance Using EC2 Instance Connect](#3-accessing-ec2-instance-using-ec2-instance-connect)
-6. [Accessing EC2 Instance Using Session Manager (AWS Systems Manager)](#1-accessing-ec2-instance-using-session-manager-aws-systems-manager)
+4. [Accessing EC2 Instance Using SSH](#accessing-ec2-instance-using-ssh)
+5. [Accessing EC2 Instance Using EC2 Instance Connect](#accessing-ec2-instance-using-ec2-instance-connect)
+6. [Accessing EC2 Instance Using Session Manager (AWS Systems Manager)](#accessing-ec2-instance-using-session-manager-aws-systems-manager)
+
 
 ## Using AWS Management Console
 
@@ -126,6 +127,7 @@ Note: you can configure the instances according to your preference.
 There are several ways to access an EC2 instance, depending on your use case and the instance's configuration. Below are the most common methods:
 
 ## Accessing EC2 Instance Using SSH
+Steps to access an EC2 instance using SSH.
 
 This is the most common method for accessing Linux-based EC2 instances.
 
@@ -155,6 +157,7 @@ This is the most common method for accessing Linux-based EC2 instances.
    RHEL: ec2-user or root
 
 ## Accessing EC2 Instance Using EC2 Instance Connect
+Steps to access an EC2 instance using EC2 Instance Connect.
 
 AWS EC2 Instance Connect allows you to connect to your instance using a browser-based SSH client or the AWS CLI.
 
@@ -182,6 +185,7 @@ AWS EC2 Instance Connect allows you to connect to your instance using a browser-
    - Choose EC2 Instance Connect and click Connect.
 
 ## Accessing EC2 Instance Using Session Manager (AWS Systems Manager)
+Steps to access an EC2 instance using AWS Systems Manager Session Manager.
 
 This method does not require opening SSH ports or managing SSH keys. It uses IAM roles and AWS Systems Manager.
 
