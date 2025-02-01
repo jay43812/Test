@@ -86,7 +86,7 @@ This guide provides step-by-step instructions for creating and accessing an EC2 
 
 Note: you can configure the instances according to your preference.
 
-## Create EC2 using AWS SDK for Python 
+## Create EC2 using AWS SDK for Python (Boto3)
 
 ## Install Boto3
 
