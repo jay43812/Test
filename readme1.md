@@ -1,17 +1,21 @@
-# How to Create an EC2 Instance
+# How to Create and Access an EC2 Instance
 
 Amazon Elastic Compute Cloud (EC2) is a web service that provides resizable compute capacity in the cloud. This guide will walk you through different ways to create an EC2 instance.
 
+This guide provides step-by-step instructions for creating and accessing an EC2 instance using different methods.
+
+---
+
 ## Table of Contents
-1. [Using AWS Management Console](#using-aws-management-console)
-2. [Using AWS CLI](#using-aws-cli)
-3. [Using AWS SDK for Python (Boto3)](#using-aws-sdk-for-python-boto3)
+1. [Create EC2 using AWS Management Console](#create-ec2-using-aws-management-console)
+2. [Create EC2 using AWS CLI](#create-ec2-using-aws-cli)
+3. [Create EC2 using AWS SDK for Python (Boto3)](#create-ec2-using-aws-sdk-for-python-boto3)
 4. [Accessing EC2 Instance Using SSH](#accessing-ec2-instance-using-ssh)
 5. [Accessing EC2 Instance Using EC2 Instance Connect](#accessing-ec2-instance-using-ec2-instance-connect)
 6. [Accessing EC2 Instance Using Session Manager (AWS Systems Manager)](#accessing-ec2-instance-using-session-manager-aws-systems-manager)
 
-
-## Using AWS Management Console
+---
+## Create EC2 using AWS Management Console
 
 1. **Sign in to the AWS Management Console**  
    Go to the [AWS Management Console](https://aws.amazon.com/console/) and sign in with your credentials.
@@ -55,7 +59,7 @@ Amazon Elastic Compute Cloud (EC2) is a web service that provides resizable comp
 11. **Review and Launch**  
     Review your configuration and click "Launch."
 
-## Using AWS CLI
+## Create EC2 using AWS CLI
 
 1. Install AWS CLI
    If you haven't installed the AWS CLI, you can install it by following the [official guide](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html).
@@ -82,7 +86,7 @@ Amazon Elastic Compute Cloud (EC2) is a web service that provides resizable comp
 
 Note: you can configure the instances according to your preference.
 
-# Using AWS SDK for Python (Boto3)
+## Create EC2 using AWS SDK for Python 
 
 ## Install Boto3
 
