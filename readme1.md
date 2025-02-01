@@ -126,7 +126,7 @@ Note: you can configure the instances according to your preference.
 
 There are several ways to access an EC2 instance, depending on your use case and the instance's configuration. Below are the most common methods:
 
-### 1. Accessing EC2 Instance Using SSH
+### Accessing EC2 Instance Using SSH
 
 This is the most common method for accessing Linux-based EC2 instances.
 
@@ -155,7 +155,7 @@ This is the most common method for accessing Linux-based EC2 instances.
 
    RHEL: ec2-user or root
 
-### 2. Accessing EC2 Instance Using EC2 Instance Connect
+### Accessing EC2 Instance Using EC2 Instance Connect
 
 AWS EC2 Instance Connect allows you to connect to your instance using a browser-based SSH client or the AWS CLI.
 
@@ -182,7 +182,7 @@ AWS EC2 Instance Connect allows you to connect to your instance using a browser-
    - Select the instance and click Connect.
    - Choose EC2 Instance Connect and click Connect.
 
-### 3. Accessing EC2 Instance Using Session Manager (AWS Systems Manager)
+### Accessing EC2 Instance Using Session Manager (AWS Systems Manager)
 
 This method does not require opening SSH ports or managing SSH keys. It uses IAM roles and AWS Systems Manager.
 
