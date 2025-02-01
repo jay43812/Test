@@ -14,19 +14,19 @@ Welcome to the DevOps Tutorial! This guide will walk you through the fundamental
 
 ## Prerequisites
 
-This repo explores DevOps, SDLC, and Virtualization, answering key questions on automation, efficiency, and resource optimization. It also connects these concepts to cloud platforms like AWS, Azure, and GCP. Perfect for learning or brushing up on modern software delivery practices! 🚀
+This repo explores DevOps, SDLC, and Virtualization, answering key questions on automation, efficiency, and resource optimization. It also connects these concepts to cloud platforms like AWS, Azure, and GCP. Perfect for learning or brushing up on modern software delivery practices! 🚀 [Go to Prerequisites](https://github.com/patelj2400/aws-cli-tutorials/blob/main/Prerequisites/README.md)
 
 ---
 
 ## Day-1: Introduction to AWS CLI
 
-This day is all about how to set up AWS CLI on your local machine.[Go to Day 1](https://github.com/patelj2400/aws-cli-tutorials/blob/main/Day-1/README.md)
+This day is all about how to set up AWS CLI on your local machine. [Go to Day 1](https://github.com/patelj2400/aws-cli-tutorials/blob/main/Day-1/README.md)
 
 ---
 
 ## Day-2: How to Create and Acccess EC2 Instance
 
-This day is all about how to create an EC2 instance and different ways to access it.[Go to Day 2](https://github.com/patelj2400/aws-cli-tutorials/blob/main/Day-2/README.md)
+This day is all about how to create an EC2 instance and different ways to access it. [Go to Day 2](https://github.com/patelj2400/aws-cli-tutorials/blob/main/Day-2/README.md)
 
 ---
 
