@@ -1,215 +1,40 @@
-# How to Create and Access an EC2 Instance
+# DevOps Tutorial
 
-Amazon Elastic Compute Cloud (EC2) is a web service that provides resizable compute capacity in the cloud. This guide will walk you through different ways to create an EC2 instance.
-
-This guide provides step-by-step instructions for creating and accessing an EC2 instance using different methods.
+Welcome to the DevOps Tutorial! This guide will walk you through the fundamental concepts, tools, and practices of DevOps. Whether you're a beginner or looking to refine your skills, this tutorial will help you understand how to implement DevOps in your projects.
 
 ---
 
 ## Table of Contents
-1. [Create EC2 using AWS Management Console](#create-ec2-using-aws-management-console)
-2. [Create EC2 using AWS CLI](#create-ec2-using-aws-cli)
-3. [Create EC2 using AWS SDK for Python (Boto3)](#create-ec2-using-aws-sdk-for-python-boto3)
-4. [Accessing EC2 Instance Using SSH](#accessing-ec2-instance-using-ssh)
-5. [Accessing EC2 Instance Using EC2 Instance Connect](#accessing-ec2-instance-using-ec2-instance-connect)
-6. [Accessing EC2 Instance Using Session Manager (AWS Systems Manager)](#accessing-ec2-instance-using-session-manager-aws-systems-manager)
-
----
-## Create EC2 using AWS Management Console
-
-1. **Sign in to the AWS Management Console**  
-   Go to the [AWS Management Console](https://aws.amazon.com/console/) and sign in with your credentials.
-
-2. **Navigate to EC2 Dashboard**  
-   In the AWS Management Console, navigate to the EC2 Dashboard by searching for "EC2" in the services search bar.
-
-3. **Launch Instance**  
-   Click on the "Launch Instance" button.
-
-
-4. **Give name and tags**  
-   Give your instance name and select the tag(Optional)
-   Add tags to your instance (e.g., Name: MyInstance).
-
-5. **Choose an Amazon Machine Image (AMI)**  
-   Select an AMI(Application Machine Image) from the list. You can choose from Amazon Linux, Ubuntu, Windows, etc.
-   For example: Choose Ubuntu Server (24.04) SSD Volumne Type - **Free Tier Eligible**
-
-   Select Architecutre you want (64-bit x86 or 64-bit Arm)
-
-6. **Choose an Instance Type**  
-   Select the instance type based on your requirements (e.g., t2.micro, t3.medium).
-   For example: Select t2-micro -  **Free Tier Eligible**
-
-7. **Configure Instance Details**  
-   Configure the instance details such as the number of instances, network settings, IAM role, etc.
-   For example: How many instances you want, network setting is all about how to access it" 
-
-8. **Add Storage**  
-   Specify the storage size and type (e.g., General Purpose SSD, Magnetic).
-   For example: Which type of storage you want
-   
-9. **Configure Security Group**  
-   Configure the security group to control inbound and outbound traffic.
-
-10. **Select an Existing Key Pair or Create a New Key Pair**  
-    Select an existing key pair or create a new one to securely connect to your instance.
-    Note: This key pair will help you to access the EC2 instance locally from your machine
-
-11. **Review and Launch**  
-    Review your configuration and click "Launch."
-
-## Create EC2 using AWS CLI
-
-1. Install AWS CLI
-   If you haven't installed the AWS CLI, you can install it by following the [official guide](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html).
-
-2. Configure AWS CLI 
-   Configure the AWS CLI with your credentials:
-   ```bash
-   aws configure
-3. Enter the following details when prompted
-   ```bash
-   AWS Access Key ID [None]: AKIAXXXXXXXXXXXXXXXX  # Replace with your Access Key
-   AWS Secret Access Key [None]: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  # Replace with your Secret Key
-   Default region name [None]: for example : us-east-1  # Preferred AWS region
-   Default output format [None]: json  # Output format (json/text/table)
-
-4. Run the Command to Create an EC2 Instance
-    ```bash
-    aws ec2 run-instances \
-    --image-id ami-04b4f1a9cf54c11d0 \
-    --instance-type t2.micro \
-    --key-name demonode \
-    --security-group-ids sg-0d314cffc6ba91929 \
-    --count 1
-
-Note: you can configure the instances according to your preference.
-
-## Create EC2 using AWS SDK for Python (Boto3)
-
-## Install Boto3
-
-1. Install Boto3 using `pip`:
-    ```bash
-    pip install boto3
-
-2. Check Python whether installed in your system
-
-3. Create a Python Script
-    ```
-    import boto3
-
-    # Initialize the EC2 client
-    ec2 = boto3.client('ec2')
-
-    # Launch an EC2 instance
-    response = ec2.run_instances(
-        ImageId='ami-0abcdef1234567890',        # Replace with your AMI ID
-        InstanceType='t2.micro',                # Instance type
-        KeyName='MyKeyPair',                    # Key pair for SSH access
-        SecurityGroupIds=['sg-0abcdef1234567890'],  # Security group ID
-        SubnetId='subnet-0abcdef1234567890',    # Subnet ID
-        MinCount=1,                             # Minimum number of instances
-        MaxCount=1                              # Maximum number of instances
-    )
-
-    # Print the response
-    print(response)
-
-4. Run the Script (Execute the script to create the EC2 instance:)
-    ```
-    python your_script_name.py
-
-5. Run this command to check instance created and running:
-    ```
-    aws ec2 describe-instances --query "Reservations[*].Instances[*].[InstanceId,State.Name,InstanceType,PublicIpAddress]" --output table
-
-
-# How to Access an EC2 Instance
-
-There are several ways to access an EC2 instance, depending on your use case and the instance's configuration. Below are the most common methods:
-
-## Accessing EC2 Instance Using SSH
-Steps to access an EC2 instance using SSH.
-
-This is the most common method for accessing Linux-based EC2 instances.
-
-### Prerequisites:
-- The EC2 instance must have a public IP address or be accessible via a bastion host.
-- You must have the private key (`.pem` file) associated with the key pair used when launching the instance.
-- The security group associated with the instance must allow inbound SSH traffic (port 22) from your IP address.
-
-### Steps:
-1. Locate the private key (e.g., `MyKeyPair.pem`) and ensure it has the correct permissions:
-
-   ```bash
-   chmod 400 MyKeyPair.pem
-
-2. SSH into the instance using the public IP or DNS of the instance:
-   ```bash
-   ssh -i /path/to/MyKeyPair.pem ec2-user@<public-ip-or-dns>
-
-   Note:Replace ec2-user with the appropriate username for your AMI:
-
-   Amazon Linux: ec2-user
-
-   Ubuntu: ubuntu
-
-   CentOS: centos
-
-   RHEL: ec2-user or root
-
-## Accessing EC2 Instance Using EC2 Instance Connect
-Steps to access an EC2 instance using EC2 Instance Connect.
-
-AWS EC2 Instance Connect allows you to connect to your instance using a browser-based SSH client or the AWS CLI.
+1. [Prerequisites](#prerequisites)
+2. [Day-1: Introduction to AWS CLI](#day-1-introduction-to-aws-cli)
+3. [Day-2: How to Create and Connect EC2 Instance](#day-2-how-to-create-and-connect-ec2-instance)
+4. [Contact](#contact)
 
 ---
 
 ## Prerequisites
 
-- The instance must be in a region that supports EC2 Instance Connect.
-- The instance must have the `ec2-instance-connect` package installed.
-- The security group must allow inbound SSH traffic (port 22).
+This repo explores DevOps, SDLC, and Virtualization, answering key questions on automation, efficiency, and resource optimization. It also connects these concepts to cloud platforms like AWS, Azure, and GCP. Perfect for learning or brushing up on modern software delivery practices! 🚀
 
 ---
 
-## Steps
+## Day-1: Introduction to AWS CLI
 
-1. Install EC2 Instance Connect (if not pre-installed)
-   Run the following command on your EC2 instance:
+This day is all about how to set up AWS CLI on your local machine.[Go to Day 1](https://github.com/patelj2400/aws-cli-tutorials/blob/main/Day-1/README.md)
 
-   ```bash
-   sudo yum install ec2-instance-connect
+---
 
-2. Connect via the AWS Management Console
-   - Go to the EC2 Dashboard.
-   - Select the instance and click Connect.
-   - Choose EC2 Instance Connect and click Connect.
+## Day-2: How to Create and Acccess EC2 Instance
 
-## Accessing EC2 Instance Using Session Manager (AWS Systems Manager)
-Steps to access an EC2 instance using AWS Systems Manager Session Manager.
+This day is all about how to create an EC2 instance and different ways to access it.[Go to Day 2](https://github.com/patelj2400/aws-cli-tutorials/blob/main/Day-2/README.md)
 
-This method does not require opening SSH ports or managing SSH keys. It uses IAM roles and AWS Systems Manager.
+---
 
-### Prerequisites:
-- The EC2 instance must have the SSM Agent installed (pre-installed on Amazon Linux 2 and Ubuntu 18.04+).
-- The instance must have an IAM role attached with the `AmazonSSMManagedInstanceCore` policy.
-- You must have the necessary IAM permissions to use Session Manager.
+## Contact
 
-### Steps:
-
-1. Install SSM Agent (if not pre-installed):
-   ```bash
-   sudo yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
-   sudo systemctl start amazon-ssm-agent
-
-2. Start a session from the AWS Management Console:
-   - Go to AWS Systems Manager > Session Manager.
-   - Click Start Session and select your EC2 instance.
-
-3. Start a session using the AWS CLI:
-   ```bash
-   aws ssm start-session --target <instance-id>
+For questions or feedback, feel free to reach out!
+## Contact
+For questions or feedback:
+📧 Email: patelj2400@gmail.com  
+🐙 GitHub: patelj2400
 
