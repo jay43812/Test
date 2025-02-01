@@ -1,90 +1,208 @@
-# Prerequisites
+# How to Create an EC2 Instance
 
-## 1. What is DevOps?
-**Answer:** DevOps is a culture or practice that improves an organization's ability to deliver applications quickly and efficiently. It focuses on automation, quality, monitoring, and continuous testing to streamline the software delivery process.
+Amazon Elastic Compute Cloud (EC2) is a web service that provides resizable compute capacity in the cloud. This guide will walk you through different ways to create an EC2 instance.
 
-## 2. Why is DevOps important?
-**Answer:** DevOps is important because it eliminates silos between development and operations teams, reduces manual efforts, and speeds up the delivery of applications. It ensures faster time-to-market, better quality, and improved collaboration.
+## Table of Contents
+1. [Using AWS Management Console](#using-aws-management-console)
+2. [Using AWS CLI](#using-aws-cli)
+3. [Using AWS SDK for Python (Boto3)](#using-aws-sdk-for-python-boto3)
+4. [How to Access an EC2 Instance](#how-to-access-an-ec2-instance)
+   - [Accessing EC2 Instance Using SSH](#2-accessing-ec2-instance-using-ssh)
+   - [Accessing EC2 Instance Using EC2 Instance Connect](#3-accessing-ec2-instance-using-ec2-instance-connect)
+   - [Accessing EC2 Instance Using Session Manager (AWS Systems Manager)](#1-accessing-ec2-instance-using-session-manager-aws-systems-manager)
 
-## 3. What are the key pillars of DevOps?
-**Answer:** The key pillars of DevOps are:
+## Using AWS Management Console
 
-- **Automation:** Reducing manual tasks to speed up processes.
-- **Quality:** Ensuring the application meets the required standards.
-- **Monitoring:** Continuously tracking the application's performance and health.
-- **Testing:** Ensuring the application is thoroughly tested before delivery.
+1. **Sign in to the AWS Management Console**  
+   Go to the [AWS Management Console](https://aws.amazon.com/console/) and sign in with your credentials.
 
-## 4. What is SDLC, and why is it important?
-**Answer:** SDLC (Software Development Life Cycle) is a standardized process used by organizations to design, develop, and test software products. It ensures the delivery of high-quality software that meets customer expectations. It is important because it provides a structured approach to software development, reducing errors and improving efficiency.
+2. **Navigate to EC2 Dashboard**  
+   In the AWS Management Console, navigate to the EC2 Dashboard by searching for "EC2" in the services search bar.
 
-## 5. What are the key phases of SDLC?
-**Answer:** The key phases of SDLC are:
+3. **Launch Instance**  
+   Click on the "Launch Instance" button.
 
-1. Planning and Requirements Gathering
-2. Design (HLD and LLD)
-3. Building/Development
-4. Testing
-5. Deployment
 
-## 6. What is the role of a DevOps engineer in SDLC?
-**Answer:** A DevOps engineer focuses on automating the building, testing, and deployment phases of SDLC. They ensure that these processes are efficient, fast, and free from manual intervention, ultimately improving the organization's ability to deliver high-quality software quickly.
+4. **Give name and tags**  
+   Give your instance name and select the tag(Optional)
+   Add tags to your instance (e.g., Name: MyInstance).
 
-## 7. Why is automation important in DevOps?
-**Answer:** Automation is important in DevOps because it reduces manual effort, minimizes errors, and speeds up the software delivery process. It ensures consistency and efficiency in building, testing, and deploying software.
+5. **Choose an Amazon Machine Image (AMI)**  
+   Select an AMI(Application Machine Image) from the list. You can choose from Amazon Linux, Ubuntu, Windows, etc.
+   For example: Choose Ubuntu Server (24.04) SSD Volumne Type - **Free Tier Eligible**
 
-## 8. What is Agile methodology, and how does it relate to SDLC?
-**Answer:** Agile methodology is an iterative approach to software development where work is divided into small, manageable chunks called sprints. It allows teams to deliver incremental updates quickly and adapt to changing requirements. Agile is often used in conjunction with SDLC to make the process more flexible and responsive.
+   Select Architecutre you want (64-bit x86 or 64-bit Arm)
 
-## 9. How does DevOps improve the efficiency of SDLC?
-**Answer:** DevOps improves efficiency by automating repetitive tasks, reducing manual errors, and enabling faster feedback loops. It ensures that the building, testing, and deployment phases are seamless and integrated, leading to quicker and more reliable software delivery.
+6. **Choose an Instance Type**  
+   Select the instance type based on your requirements (e.g., t2.micro, t3.medium).
+   For example: Select t2-micro -  **Free Tier Eligible**
 
-## 10. What is a Virtual Machine (VM)?
-**Answer:** A virtual machine is a logical partition of a physical server that functions as an independent computer system. It has its own CPU, memory, and storage but is created and managed by a hypervisor on a physical server.
+7. **Configure Instance Details**  
+   Configure the instance details such as the number of instances, network settings, IAM role, etc.
+   For example: How many instances you want, network setting is all about how to access it" 
 
-## 11. What is a Hypervisor?
-**Answer:** A hypervisor is a software layer that enables the creation and management of virtual machines on a physical server. It allows multiple VMs to run on a single physical server by logically isolating their resources.
+8. **Add Storage**  
+   Specify the storage size and type (e.g., General Purpose SSD, Magnetic).
+   For example: Which type of storage you want
+   
+9. **Configure Security Group**  
+   Configure the security group to control inbound and outbound traffic.
 
-## 12. Why is Virtualization Important in DevOps?
-**Answer:** Virtualization improves resource efficiency by allowing multiple applications or teams to share the resources of a single physical server. This reduces waste, lowers costs, and aligns with the DevOps goal of improving efficiency through automation and optimization.
+10. **Select an Existing Key Pair or Create a New Key Pair**  
+    Select an existing key pair or create a new one to securely connect to your instance.
+    Note: This key pair will help you to access the EC2 instance locally from your machine
 
-## 13. What is the Difference Between a Physical Server and a Virtual Machine?
-**Answer:**
+11. **Review and Launch**  
+    Review your configuration and click "Launch."
 
-- A **physical server** is a hardware-based server with fixed resources (CPU, memory, storage).
-- A **virtual machine** is a logical partition of a physical server that shares its resources but operates as an independent system.
+## Using AWS CLI
 
-## 14. How Does Virtualization Improve Resource Utilization?
-**Answer:** Virtualization allows multiple virtual machines to run on a single physical server, ensuring that the server's resources (CPU, memory, storage) are fully utilized. This prevents underutilization and reduces the need for additional physical servers.
+1. Install AWS CLI
+   If you haven't installed the AWS CLI, you can install it by following the [official guide](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html).
 
-## 15. What is an Example of a Hypervisor?
-**Answer:** Popular hypervisors include VMware, Xen, and Microsoft Hyper-V. These are used to create and manage virtual machines on physical servers.
+2. Configure AWS CLI 
+   Configure the AWS CLI with your credentials:
+   ```bash
+   aws configure
+3. Enter the following details when prompted
+   ```bash
+   AWS Access Key ID [None]: AKIAXXXXXXXXXXXXXXXX  # Replace with your Access Key
+   AWS Secret Access Key [None]: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  # Replace with your Secret Key
+   Default region name [None]: for example : us-east-1  # Preferred AWS region
+   Default output format [None]: json  # Output format (json/text/table)
 
-## 16. How Do Cloud Providers Like AWS Use Virtualization?
-**Answer:** Cloud providers like AWS use virtualization to offer scalable and efficient virtual machines (e.g., EC2 instances) to users. They install hypervisors on physical servers in data centers, allowing users to request and use virtual machines as needed.
+4. Run the Command to Create an EC2 Instance
+    ```bash
+    aws ec2 run-instances \
+    --image-id ami-04b4f1a9cf54c11d0 \
+    --instance-type t2.micro \
+    --key-name demonode \
+    --security-group-ids sg-0d314cffc6ba91929 \
+    --count 1
 
-## 17. What is Latency in the Context of Cloud Computing?
-**Answer:** Latency refers to the delay between a user's request and the response from a server. In cloud computing, choosing a data center closer to the user's location reduces latency and improves performance.
+Note: you can configure the instances according to your preference.
 
-## 18. What is the Role of a Hypervisor in AWS?
-**Answer:** In AWS, the hypervisor is responsible for creating and managing virtual machines (EC2 instances) on physical servers in data centers. When a user requests a VM, the hypervisor allocates the required resources and provides access to the VM.
+# Using AWS SDK for Python (Boto3)
 
-## 19. What is the Difference Between a VM and a Physical Server in Terms of Ownership?
-**Answer:** A physical server is owned and managed by the organization or cloud provider. A virtual machine, on the other hand, is a logical partition of a physical server and is accessed remotely by users. Users do not have physical access to the VM but can use it virtually.
+## Install Boto3
 
-## 20. What is the Significance of Logical Isolation in Virtualization?
-**Answer:** Logical isolation ensures that each virtual machine operates independently, with its own resources (CPU, memory, storage). This prevents interference between VMs and allows multiple users or teams to share the same physical server securely.
+1. Install Boto3 using `pip`:
+    ```bash
+    pip install boto3
 
-## 21. How Does Virtualization Help in Cost Savings?
-**Answer:** Virtualization reduces the need for additional physical servers by allowing multiple VMs to run on a single server. This lowers hardware costs, energy consumption, and maintenance expenses.
+2. Check Python whether installed in your system
 
-## 22. What is an EC2 Instance in AWS?
-**Answer:** An EC2 instance is a virtual machine provided by AWS. It allows users to run applications on scalable and flexible computing resources in the cloud.
+3. Create a Python Script
+    ```
+    import boto3
 
-## 23. What are the benefits of using cloud platforms like AWS and Azure for virtualization?
-**Answer:**
+    # Initialize the EC2 client
+    ec2 = boto3.client('ec2')
 
-- **Scalability:** Easily scale resources up or down based on demand.
-- **Cost-Efficiency:** Pay-as-you-go pricing models reduce upfront costs.
-- **Flexibility:** Choose from a wide range of operating systems and configurations.
-- **Automation:** Cloud platforms provide APIs and tools for automating resource provisioning.
-- **Global Reach:** Deploy resources in multiple regions worldwide.
+    # Launch an EC2 instance
+    response = ec2.run_instances(
+        ImageId='ami-0abcdef1234567890',        # Replace with your AMI ID
+        InstanceType='t2.micro',                # Instance type
+        KeyName='MyKeyPair',                    # Key pair for SSH access
+        SecurityGroupIds=['sg-0abcdef1234567890'],  # Security group ID
+        SubnetId='subnet-0abcdef1234567890',    # Subnet ID
+        MinCount=1,                             # Minimum number of instances
+        MaxCount=1                              # Maximum number of instances
+    )
+
+    # Print the response
+    print(response)
+
+4. Run the Script (Execute the script to create the EC2 instance:)
+    ```
+    python your_script_name.py
+
+5. Run this command to check instance created and running:
+    ```
+    aws ec2 describe-instances --query "Reservations[*].Instances[*].[InstanceId,State.Name,InstanceType,PublicIpAddress]" --output table
+
+
+# How to Access an EC2 Instance
+
+There are several ways to access an EC2 instance, depending on your use case and the instance's configuration. Below are the most common methods:
+
+## 1. Accessing EC2 Instance Using SSH
+
+This is the most common method for accessing Linux-based EC2 instances.
+
+### Prerequisites:
+- The EC2 instance must have a public IP address or be accessible via a bastion host.
+- You must have the private key (`.pem` file) associated with the key pair used when launching the instance.
+- The security group associated with the instance must allow inbound SSH traffic (port 22) from your IP address.
+
+### Steps:
+1. Locate the private key (e.g., `MyKeyPair.pem`) and ensure it has the correct permissions:
+
+   ```bash
+   chmod 400 MyKeyPair.pem
+
+2. SSH into the instance using the public IP or DNS of the instance:
+   ```bash
+   ssh -i /path/to/MyKeyPair.pem ec2-user@<public-ip-or-dns>
+
+   Note:Replace ec2-user with the appropriate username for your AMI:
+
+   Amazon Linux: ec2-user
+
+   Ubuntu: ubuntu
+
+   CentOS: centos
+
+   RHEL: ec2-user or root
+
+## 2. Accessing EC2 Instance Using EC2 Instance Connect
+
+AWS EC2 Instance Connect allows you to connect to your instance using a browser-based SSH client or the AWS CLI.
+
+---
+
+## Prerequisites
+
+- The instance must be in a region that supports EC2 Instance Connect.
+- The instance must have the `ec2-instance-connect` package installed.
+- The security group must allow inbound SSH traffic (port 22).
+
+---
+
+## Steps
+
+1. Install EC2 Instance Connect (if not pre-installed)
+   Run the following command on your EC2 instance:
+
+   ```bash
+   sudo yum install ec2-instance-connect
+
+2. Connect via the AWS Management Console
+   - Go to the EC2 Dashboard.
+   - Select the instance and click Connect.
+   - Choose EC2 Instance Connect and click Connect.
+
+## 3. Accessing EC2 Instance Using Session Manager (AWS Systems Manager)
+
+This method does not require opening SSH ports or managing SSH keys. It uses IAM roles and AWS Systems Manager.
+
+### Prerequisites:
+- The EC2 instance must have the SSM Agent installed (pre-installed on Amazon Linux 2 and Ubuntu 18.04+).
+- The instance must have an IAM role attached with the `AmazonSSMManagedInstanceCore` policy.
+- You must have the necessary IAM permissions to use Session Manager.
+
+### Steps:
+
+1. Install SSM Agent (if not pre-installed):
+   ```bash
+   sudo yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
+   sudo systemctl start amazon-ssm-agent
+
+2. Start a session from the AWS Management Console:
+   - Go to AWS Systems Manager > Session Manager.
+   - Click Start Session and select your EC2 instance.
+
+3. Start a session using the AWS CLI:
+   ```bash
+   aws ssm start-session --target <instance-id>
+
