@@ -8,7 +8,8 @@ Welcome to the DevOps Tutorial! This guide will walk you through the fundamental
 1. [Prerequisites](#prerequisites)
 2. [Day-1: Introduction to AWS CLI](#day-1-introduction-to-aws-cli)
 3. [Day-2: How to Create and Connect EC2 Instance](#day-2-how-to-create-and-connect-ec2-instance)
-4. [Contact](#contact)
+4. [Day-3: AWS Resources Overview: Bucket, Instances, Functions, and Users](#day-3-aws-resources-overview-bucket-instances-functions-and-users)
+5. [Contact](#contact)
 
 ---
 
@@ -20,13 +21,18 @@ This repo explores DevOps, SDLC, and Virtualization, answering key questions on 
 
 ## Day-1: Introduction to AWS CLI
 
-This day is all about how to set up AWS CLI on your local machine. [Go to Day 1](https://github.com/patelj2400/aws-cli-tutorials/blob/main/Day-1/README.md)
+This day is all about how to set up AWS CLI on your local machine.[Go to Day 1](https://github.com/patelj2400/aws-cli-tutorials/blob/main/Day-1/README.md)
 
 ---
 
-## Day-2: How to Create and Acccess EC2 Instance
+## Day-2: How to Create and Connect EC2 Instance
 
-This day is all about how to create an EC2 instance and different ways to access it. [Go to Day 2](https://github.com/patelj2400/aws-cli-tutorials/blob/main/Day-2/README.md)
+This day is all about how to create an EC2 instance and different ways to access it.[Go to Day 2](https://github.com/patelj2400/aws-cli-tutorials/blob/main/Day-2/README.md)
+
+---
+## Day-3: AWS Resources Overview: Bucket, Instances, Functions, and Users
+
+This report provides an overview of key AWS resources, including S3 buckets, EC2 instances, Lambda functions, and IAM users. It tracks real-time usage. [Go to Day 3](https://github.com/patelj2400/aws-cli-tutorials/blob/main/Day-3)
 
 ---
 
