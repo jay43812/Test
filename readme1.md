@@ -2,10 +2,10 @@
 
 This guide explains how to deploy a Node.js JSON CRUD application on an **AWS EC2 instance** using Ubuntu.
 ---
+# Table of Contents  
 
 1. [Testing the Project Locally](#testing-the-project-locally)  
 2. [Deploy on EC2 Instance](#deploy-on-ec2-instance)  
-
 ---
 
 ## **Prerequisites**
@@ -16,6 +16,7 @@ This guide explains how to deploy a Node.js JSON CRUD application on an **AWS EC
 
 ---
 ## 1. Testing the Project Locally  
+
 
 1. Check Git, Node, Nmp installed in your system.
 
@@ -62,7 +63,8 @@ This guide explains how to deploy a Node.js JSON CRUD application on an **AWS EC
     node index.js
 
 ---
-## 2. Deploy on EC2 instance
+## 2. Deploy on EC2 Instance  
+
 
 ## **Step 1: Launch an EC2 Instance**
 1. **Log in to AWS Console** → Go to **EC2 Dashboard**.
@@ -150,7 +152,7 @@ This guide explains how to deploy a Node.js JSON CRUD application on an **AWS EC
    ```
 2. Check EC2 instance IP in your brower:
    ```sh
-   <your-ip>:3000
+   http://your-ec2-public-ip:3000
    ```
 ---
 
